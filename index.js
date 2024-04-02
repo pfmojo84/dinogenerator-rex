@@ -2,6 +2,8 @@ const express = require ('express'); //import express module
 const app = express(); //create express app
 const port = 3000; //define port to load website
 
+require('dotenv').config();
+
 app.use(express.static('public')); //using static files in the public folder
 
 app.get('/dinoname', async(request, response) => {
@@ -19,7 +21,7 @@ app.get('/dinoimage', async(request, response) => {
         method: 'GET',
         headers: 
             {
-            'X-RapidAPI-Key': '2bd416adb1msh92dab1b81d3838fp114ec3jsnf2dbe0a0f145',
+            'X-RapidAPI-Key': process.env.API_KEY,
             'X-RapidAPI-Host': 'joj-image-search.p.rapidapi.com'
             },
         }
